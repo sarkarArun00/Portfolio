@@ -132,25 +132,47 @@
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold gradient-text">Arun Sarkar</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link hover:text-purple-400">Home</a>
-                    <a href="#about" class="nav-link hover:text-purple-400">About</a>
-                    <a href="#services" class="nav-link hover:text-purple-400">Services</a>
-                    <a href="#portfolio" class="nav-link hover:text-purple-400">Portfolio</a>
-                    <a href="#contact" class="nav-link hover:text-purple-400">Contact</a>
-                </div>
-                <button id="mobile-menu" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <div id="mobile-nav" class="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40 md:hidden transform translate-x-full transition-transform duration-300">
+    <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+        <a href="#home" class="nav-link hover:text-purple-400 mobile-nav-link">Home</a>
+        <a href="#about" class="nav-link hover:text-purple-400 mobile-nav-link">About</a>
+        <a href="#services" class="nav-link hover:text-purple-400 mobile-nav-link">Services</a>
+        <a href="#portfolio" class="nav-link hover:text-purple-400 mobile-nav-link">Portfolio</a>
+        <a href="#contact" class="nav-link hover:text-purple-400 mobile-nav-link">Contact</a>
+    </div>
+</div>
+
+<nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">AJ</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link hover:text-purple-400">Home</a>
+                <a href="#about" class="nav-link hover:text-purple-400">About</a>
+                <a href="#services" class="nav-link hover:text-purple-400">Services</a>
+                <a href="#portfolio" class="nav-link hover:text-purple-400">Portfolio</a>
+                <a href="#contact" class="nav-link hover:text-purple-400">Contact</a>
             </div>
+            
+            <!-- ADD THE MOBILE MENU HTML HERE -->
+            <div id="mobile-nav" class="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40 md:hidden transform translate-x-full transition-transform duration-300">
+                <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                    <a href="#home" class="nav-link hover:text-purple-400 mobile-nav-link">Home</a>
+                    <a href="#about" class="nav-link hover:text-purple-400 mobile-nav-link">About</a>
+                    <a href="#services" class="nav-link hover:text-purple-400 mobile-nav-link">Services</a>
+                    <a href="#portfolio" class="nav-link hover:text-purple-400 mobile-nav-link">Portfolio</a>
+                    <a href="#contact" class="nav-link hover:text-purple-400 mobile-nav-link">Contact</a>
+                </div>
+            </div>
+            
+            <button id="mobile-menu" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
@@ -537,10 +559,20 @@
             observer.observe(el);
         });
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            // Simple mobile menu implementation
-            alert('Mobile menu would open here. This is a demo portfolio.');
+       // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', function () {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileNav.classList.remove('translate-x-full');
+                mobileNav.classList.add('translate-x-0');
+            } else {
+                mobileNav.classList.remove('translate-x-0');
+                mobileNav.classList.add('translate-x-full');
+            }
         });
 
         // Form submission handler
