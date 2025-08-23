@@ -542,7 +542,10 @@
                         </div>
                     </div>
                 </div>
-                <form action="https://formsubmit.co/akstech16@gmail.com" method="POST" class="space-y-6">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    <!-- REQUIRED: Your Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="4625cb4a-ef22-43da-8644-c450909990a6">
+
                     <div>
                         <label class="block text-sm font-medium mb-2">Name</label>
                         <input type="text" name="name" required
@@ -559,14 +562,8 @@
                             class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition-colors resize-none"></textarea>
                     </div>
 
-                    <!-- Optional: Honeypot to prevent spam -->
-                    <input type="text" name="_honey" style="display:none">
-
-                    <!-- Optional: Disable CAPTCHA -->
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <!-- Optional: Redirect after submit -->
-                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    <!-- Optional redirect after submit -->
+                    <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html">
 
                     <button type="submit"
                         class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
